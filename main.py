@@ -7,22 +7,22 @@ def encript(mpass):
                    't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7',
                    '8', '9', '+', '/']
     # print(mpass)
-    binword = []
+    bword = []
     for i in range(len(mpass)):
-        binword.append('0' + format(ord(mpass[i]), 'b'))
-    # print(binword)
-    binword = ''.join(binword)
-    # print(binword)
-    if len(binword) % 6 != 0:
-        while len(binword) % 6 != 0:
-            binword = binword + "0"
-    # print(binword)
+        bword.append('0' + format(ord(mpass[i]), 'b'))
+    # print(bword)
+    bword = ''.join(bword)
+    # print(bword)
+    if len(bword) % 6 != 0:
+        while len(bword) % 6 != 0:
+            bword = bword + "0"
+    # print(bword)
     sixword = []
-    # print(len(binword) / 6)
-    for i in range(int(len(binword) / 6)):
+    # print(len(bword) / 6)
+    for i in range(int(len(bword) / 6)):
         sixword.append('')
         for j in range(6):
-            sixword[i] = sixword[i] + binword[i * 6 + j]
+            sixword[i] = sixword[i] + bword[i * 6 + j]
     # print(sixword)
     for i in range(len(sixword)):
         sixword[i] = base64Table[int(sixword[i], base=2)]
